@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Web components example</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0">
+
+  <script>
+    // Step 1: Create a class that defined the behavior of our new element
+    class ExampleElement extends HTMLElement {
+      constructor() {
+        super();
+        this.name = 'Dolphin';
+      }
+
+      connectedCallback() {
+        console.log('ExampleElement#connectedCallback - means the element was attached to the DOM');
+        const newHeading = document.createElement('h2');
+        newHeading.innerHTML = 'Hello ' + this.name;
+        this.appendChild(newHeading)
+      }
+
+      disconnectedCallback() {
+        console.log('ExampleElement#disconnectedCallback - means the element was removed from the DOM :(');
+      }
+    }
+    // Step 2: Tell the browser to register that element with a specific tag name.
+    window.customElements.define('hello-world', ExampleElement);
+  </script>
+</head>
+<body>
+  <hello-world></hello-world>
+</body>
+</html>

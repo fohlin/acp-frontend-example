@@ -1,0 +1,13 @@
+example-counter {
+  display: block;
+  border: 1px solid pink;
+  padding: 4px 8px;
+  margin: 16px 0;
+
+  transition: transform 1s ease-in-out;
+}
+
+example-counter.wow {
+  border-width: 10px;
+  transform: rotate(360deg);
+}
